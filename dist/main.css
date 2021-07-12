@@ -6,7 +6,7 @@
   border: 2px solid black;
   background-color: darkgray;
   display: block;
-  width: 550px;
+  
 }
 button {
   background-color: lightblue;
@@ -24,4 +24,29 @@ button {
 .bot-row {
    margin-left: 30px ;
 }
+.title img {
+  width: 200px;
+  height: 200px;
+}
+.whole-page {
+  background-color: aquamarine;
+}
+.column {
+  float: left;
+  padding: 10px;
+}
+.whole-page::after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
 
+.left, .right {
+  width: 25%;
+}
+
+.mid {
+  width: 50%;
+  
+}
