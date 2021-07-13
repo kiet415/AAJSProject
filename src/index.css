@@ -13,7 +13,7 @@
   margin-left: 20%;
 }
 .game-over {
-  font-size: 50px;
+  font-size: 100px;
   text-align: center;
   margin-left: 10%;
 }
@@ -55,6 +55,12 @@ button:hover {
 .display-hint {
   font-size: 30px;
   margin-left: 20%;
+}
+.winner {
+  font-size: 100px;
+  text-align: center;
+  margin-left: 10%;
+  color: orangered;
 }
 .whole-page {
   background-color: aquamarine;

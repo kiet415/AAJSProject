@@ -117,6 +117,7 @@ class Game {
             hintDiv.append(div);
             const hint = document.querySelector("#hint-2");
             hint.remove();
+            this.decrementLives();
         } else if(hint.innerText === 'Hint 2' && this.lives === 1) {
             alert("YOU CAN'T USE HINT 2 WITH 1 LIFE LEFT!")
         }
