@@ -1,13 +1,14 @@
 import RandomWord from "./words";
 
 class Game {
-    constructor(difficulty) {
-        this.lives = difficulty;
+    constructor() {
+        this.lives = 10;
         this.randomWord = new RandomWord();
         this.word = this.randomWord.word.toUpperCase();
         this.firstHint = this.randomWord.hints[0];
         this.secondHint = this.randomWord.hints[1];
         this.setUpWord();
+        this.setUpHints();
     }
     setUpWord() {
         const wordUL = document.querySelector(".guess-word");
@@ -36,7 +37,7 @@ class Game {
     }
     checkGuess(letter) {
         let char = letter.innerText.toUpperCase();
-        console.log(char);
+        //console.log(char);
         if(char.length === 1) {
             if(this.word.includes(char)) {
                 let pos = [];
@@ -52,7 +53,42 @@ class Game {
             } else {
                 this.decrementLives();
             }
-            console.log(lives);
+            console.log(this.lives);
+        }
+        //removeEventListener("click",letter)
+    }
+    setUpHints() {
+        const hintDiv = document.querySelector(".hint-div");
+        const firstHint = document.createElement("button");
+        firstHint.append("Hint 1");
+        firstHint.className = "hint";
+        const secondHint = document.createElement("button");
+        secondHint.append("Hint 2");
+        secondHint.className = "hint";
+        hintDiv.append(firstHint);
+        hintDiv.append(secondHint);
+        this.hintClickHandler();
+    }
+    hintClickHandler() {
+        document.addEventListener("click",this.handleHintClick);
+    }
+    handleHintClick = (e) => {
+        const el = e.target;
+        this.displayHint(el);
+    }
+    displayHint(hint) {
+        const hintDiv = document.querySelector(".display-hint");
+        //console.log(hint.innerText)
+        if(hint.innerText === 'Hint 1') {
+            const div = document.createElement("div");
+            div.append(this.firstHint);
+            hintDiv.append(div);
+            removeEventListener("click",hint)
+        } else if(hint.innerText === 'Hint 2') {
+            const div = document.createElement("div");
+            div.append(this.secondHint);
+            hintDiv.append(div);
+            removeEventListener("click",hint)
         }
     }
     decrementLives() {
