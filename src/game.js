@@ -9,6 +9,14 @@ class Game {
         this.secondHint = this.randomWord.hints[1];
         this.setUpWord();
         this.setUpHints();
+        this.setUpLives();
+    }
+    setUpLives() {
+        const div = document.querySelector(".display-lives");
+        const livesDiv = document.createElement('div');
+        livesDiv.className = "lives";
+        livesDiv.append(`You have ${this.lives} lives left`);
+        div.append(livesDiv);
     }
     setUpWord() {
         const wordUL = document.querySelector(".guess-word");
@@ -50,21 +58,39 @@ class Game {
                 for(let i = 0; i < pos.length; i++) {
                     liList[pos[i]].innerText = char;
                 }
+                const button = document.querySelector(`#letter-${char.toLowerCase()}`);
+                button.remove();
+                if(this.isWin()) {
+                    const keyboardDiv = document.querySelector(".keyboard-div");
+                    console.log("You win!");
+                    const hint1 = document.querySelector("#hint-1");
+                    const hint2 = document.querySelector("#hint-2");
+                    if(hint1) hint1.remove();
+                    if(hint2) hint2.remove();
+
+                    keyboardDiv.className = "winner"
+                    keyboardDiv.innerText = "You win!";
+                }
             } else {
+                const button = document.querySelector(`#letter-${char.toLowerCase()}`);
+                button.remove();
                 this.decrementLives();
             }
-            console.log(this.lives);
+            
         }
-        //removeEventListener("click",letter)
+        
     }
+    
     setUpHints() {
         const hintDiv = document.querySelector(".hint-div");
         const firstHint = document.createElement("button");
         firstHint.append("Hint 1");
         firstHint.className = "hint";
+        firstHint.id = "hint-1"
         const secondHint = document.createElement("button");
         secondHint.append("Hint 2");
         secondHint.className = "hint";
+        secondHint.id = "hint-2"
         hintDiv.append(firstHint);
         hintDiv.append(secondHint);
         this.hintClickHandler();
@@ -83,22 +109,43 @@ class Game {
             const div = document.createElement("div");
             div.append(this.firstHint);
             hintDiv.append(div);
-            removeEventListener("click",hint)
-        } else if(hint.innerText === 'Hint 2') {
+            const hint = document.querySelector("#hint-1");
+            hint.remove();
+        } else if(hint.innerText === 'Hint 2' && this.lives > 1) {
             const div = document.createElement("div");
             div.append(this.secondHint);
             hintDiv.append(div);
-            removeEventListener("click",hint)
+            const hint = document.querySelector("#hint-2");
+            hint.remove();
+        } else if(hint.innerText === 'Hint 2' && this.lives === 1) {
+            alert("YOU CAN'T USE HINT 2 WITH 1 LIFE LEFT!")
         }
     }
     decrementLives() {
         this.lives--;
+        const livesDiv = document.querySelector(".lives");
+        livesDiv.innerText = `You have ${this.lives} lives left`;
         this.isGameOver();
+    }
+    isWin() {
+        const liList = document.querySelector(".guess-word").children;
+        for(let i = 0; i < liList.length; i++) {
+            if(liList[i].innerText === "_") return false;
+        }
+        return true;
     }
     isGameOver() {
         if(this.lives === 0) {
+            const livesDiv = document.querySelector(".lives");
+            const keyboardDiv = document.querySelector(".keyboard-div");
             console.log("Game Over");
-            //create h1 elements later
+            const hint1 = document.querySelector("#hint-1");
+            const hint2 = document.querySelector("#hint-2");
+            if(hint1) hint1.remove();
+            if(hint2) hint2.remove();
+            livesDiv.remove();
+            keyboardDiv.className = "game-over"
+            keyboardDiv.innerText = "GAME OVER!";
         }
     }
 
