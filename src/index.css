@@ -1,0 +1,67 @@
+.instructions-desc {
+  border: black 1px solid;
+}
+.keyboard-div {
+  border: 2px solid black;
+  background-color: darkgray;
+  display: block;
+  width: 600px;
+}
+button {
+  background-color: lightblue;
+  border: 1px solid black;
+  color: black;
+  font-size: 20px;
+  height: 50px;
+  width: 50px;
+  text-align: middle;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+button:hover {
+  background-color: yellow;
+}
+.top-row, .mid-row {
+  margin-left: 35px;
+}
+.bot-row {
+    margin-left: 65px;
+}
+.title img {
+  width: 200px;
+  height: 200px;
+  
+}
+.whole-page {
+  background-color: aquamarine;
+  margin: -8px;
+}
+.column {
+  float: left;
+  position: relative;
+  padding-right: 10px;
+}
+.whole-page::after {
+  content: "";
+  display: table;
+  clear: both;
+  
+}
+
+.left, .right {
+  width: 24%;
+}
+
+.mid {
+  width: 48%;
+}
+.guess-word {
+  display: flex;
+}
+.guess-word li {
+  list-style: none;
+  margin-left: 5px;
+  margin-right: 5px;
+}

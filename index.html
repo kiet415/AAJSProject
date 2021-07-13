@@ -2,69 +2,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <div class = "whole-page">
-    <div class = "column left">LEFT COLUMN HERE</div>
     
     <div class = "column mid">
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-            <link rel="stylesheet" href="./dist/main.css" />
+            <link rel="stylesheet" href="./src/index.css" />
             <script src="./dist/main.js"></script>
             <div class = "title">
                 <img src = "photos/logo.png" alt = "Logo pic"> </img>
             </div>
+            
         </head>
         
-       
-
-            <div class = "guess-word">
-                Guessed word here _ _ _ _ 
-            </div>
-            <div class = "keyboard-div"> 
-                <div class = "top-row">
-                    <button class = "letter-a">A</button>
-                    <button class = "letter-b">B</button>
-                    <button class = "letter-c">C</button>
-                    <button class = "letter-d">D</button>
-                    <button class = "letter-e">E</button>
-                    <button class = "letter-f">F</button>
-                    <button class = "letter-g">G</button>
-                    <button class = "letter-h">H</button>
-                    <button class = "letter-i">I</button>
-                </div>
-                
-                <div class = "mid-row">
-                    <button class = "letter-j">J</button>
-                    <button class = "letter-k">K</button>
-                    <button class = "letter-l">L</button>
-                    <button class = "letter-m">M</button>
-                    <button class = "letter-n">N</button>
-                    <button class = "letter-o">O</button>
-                    <button class = "letter-p">P</button>
-                    <button class = "letter-q">Q</button>
-                    <button class = "letter-r">R</button>
-
-                </div>
-                <div class = "bot-row">
-                    <button class = "letter-s">S</button>
-                    <button class = "letter-t">T</button>
-                    <button class = "letter-u">U</button>
-                    <button class = "letter-v">V</button>
-                    <button class = "letter-w">W</button>
-                    <button class = "letter-x">X</button>
-                    <button class = "letter-y">Y</button>
-                    <button class = "letter-z">Z</button>
-
-                </div>
-                
-
-            </div>
-      
-        
     </div>
-    <div class = "column right">RIGHT COLUMN</div>
     
+    <a href = "./game.html"><button onclick="createGame(10)">EASY </button>   </a>
+    <a href = "./game.html"><button onclick="createGame(7)">MED </button>  </a>
+    <a href = "./game.html"><button onclick="createGame(5)">HARD </button>   </a>
     
-</div>
 </html>
