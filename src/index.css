@@ -171,7 +171,7 @@ footer {
   margin-right: 50px;
 }
 .scoreboard li {
-  font-size: 20px;
+  font-size: 26px;
 }
 .scoreboard li:nth-child(2){
   background-color: gold;
@@ -188,5 +188,10 @@ footer {
 
 .new-score {
   margin-top: 30px;
-  font-size: 20px;
+  font-size: 26px;
+}
+.crown {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
 }

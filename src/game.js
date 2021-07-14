@@ -12,6 +12,7 @@ class Game {
         this.setUpLives();
         this.setUpScoreBoard();
     }
+    
     setUpScoreBoard() {
         const scoreDiv = document.querySelector('.scoreboard');
         const values = Object.values(sessionStorage);
@@ -25,7 +26,7 @@ class Game {
         console.log(arr, sorted)
         for(let i = 0; i < sorted.length; i++)  {
             const list = document.createElement('li');
-            list.append(`${sorted[i].slice(1)}: ${sorted[i].slice(0,1)} lives`);
+            list.append(`${sorted[i].slice(1)}: ${sorted[i].slice(0,1)}`);
             scoreDiv.append(list);
         }
 
