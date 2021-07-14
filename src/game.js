@@ -22,8 +22,8 @@ class Game {
         const wordUL = document.querySelector(".guess-word");
         for(let i = 0; i < this.word.length; i++) {
             if(this.word[i] === ' ') {
-                const letterLI = document.createElement('li');
-                letterLI.append("-")
+                const letterLI = document.createElement('div');
+                letterLI.innerHTML = ("&nbsp;&nbsp;")
                 wordUL.append(letterLI);
             } else {
                 const letterLI = document.createElement('li');
