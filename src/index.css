@@ -168,10 +168,25 @@ footer {
   top: 0;
   right: 0;
   position: absolute;
+  margin-right: 50px;
 }
 .scoreboard li {
-  list-style: none;
+  font-size: 20px;
+}
+.scoreboard li:nth-child(2){
+  background-color: gold;
+}
+.scoreboard li:nth-child(3){
+  background-color: silver;
+}
+.scoreboard li:nth-child(4){
+  background-color: burlywood;
 }
 .reload {
   width: 200px;
+}
+
+.new-score {
+  margin-top: 30px;
+  font-size: 20px;
 }

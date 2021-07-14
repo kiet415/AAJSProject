@@ -15,13 +15,20 @@ class Game {
     setUpScoreBoard() {
         const scoreDiv = document.querySelector('.scoreboard');
         const values = Object.values(sessionStorage);
+        let arr = [];
         for(let i = 0; i < values.length; i++) {
             if(values[i] !== "true") {
-                const list = document.createElement('li');
-                list.append(`${values[i].slice(0,values[i].length-1)}: ${values[i].slice(values[i].length-1)} lives`);
-                scoreDiv.append(list);
+                arr.push(values[i]);
             }
         }
+        let sorted = arr.sort().reverse();
+        console.log(arr, sorted)
+        for(let i = 0; i < sorted.length; i++)  {
+            const list = document.createElement('li');
+            list.append(`${sorted[i].slice(1)}: ${sorted[i].slice(0,1)} lives`);
+            scoreDiv.append(list);
+        }
+
     }
     setUpLives() {
         const div = document.querySelector(".display-lives");
@@ -101,12 +108,13 @@ class Game {
     win() {
         const name = prompt("Please enter your name");
         const len = sessionStorage.length;
-        const val = name + this.lives;
+        const val = `${this.lives}${name}`;
         sessionStorage.setItem(`name${len}`, val);
         const value = sessionStorage.getItem(`name${len}`)
         const scoreDiv = document.querySelector('.scoreboard');
-        const list = document.createElement('li');
-        list.append(`${value.slice(0,value.length-1)}: ${value.slice(value.length-1)} lives`); 
+        const list = document.createElement('div');
+        list.className = "new-score";
+        list.append(`Play again to see your upated score ${value.slice(1)}: ${value.slice(0,1)} lives`); 
         scoreDiv.append(list);
     }
 
