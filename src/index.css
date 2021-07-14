@@ -65,13 +65,20 @@ button:hover {
   margin-top: 10PX;
 }
 .hint {
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.display-hint {
+  width: 400px;
+  line-height: 2;
 }
 #mid-col {
   margin-top: 200px;
 }
 .display-hint {
-  font-size: 30px;
+  font-size: 20px;
   margin-left: 20%;
 }
 .winner {
@@ -80,9 +87,7 @@ button:hover {
   margin-left: 10%;
   color: orangered;
 }
-.whole-page {
-  margin: -8px;
-}
+
 .column {
   float: left;
   position: relative;
@@ -138,4 +143,16 @@ footer {
   text-align: center;
   font-size: 24px;
   line-height: 1.5;
+}
+.display-lives {
+  margin-top: 10px;
+  background-color: yellow;
+  font-size: 20px;
+}
+#right-col {
+  font-size: 24px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  
 }

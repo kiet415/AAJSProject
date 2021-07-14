@@ -107,13 +107,13 @@ class Game {
         //console.log(hint.innerText)
         if(hint.innerText === 'Hint 1') {
             const div = document.createElement("div");
-            div.append(this.firstHint);
+            div.append(`Hint 1: ${this.firstHint}`);
             hintDiv.append(div);
             const hint = document.querySelector("#hint-1");
             hint.remove();
         } else if(hint.innerText === 'Hint 2' && this.lives > 1) {
             const div = document.createElement("div");
-            div.append(this.secondHint);
+            div.append(`Hint 2: ${this.secondHint}`);
             hintDiv.append(div);
             const hint = document.querySelector("#hint-2");
             hint.remove();
