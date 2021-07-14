@@ -1,17 +1,14 @@
 
-.difficulty-div {
-  display: flex;
-  flex-direction: column;
-}
 .difficulty {
   margin-top: 50px;
   width: 200px;
+  font-size: 30px;
 }
 .instructions {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 30px;
   font-size: 24px;
 }
 .game {
@@ -75,7 +72,7 @@ button:hover {
   line-height: 2;
 }
 #mid-col {
-  margin-top: 200px;
+  margin-top: 30px;
 }
 .display-hint {
   font-size: 20px;
@@ -93,6 +90,11 @@ button:hover {
   position: relative;
   padding-right: 10px;
 }
+.whole-page {
+  display: none;
+  
+}
+
 .whole-page::after {
   content: "";
   display: table;
@@ -154,5 +156,22 @@ footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  
+  margin-left: 10px;
+}
+.start-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scoreboard {
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+.scoreboard li {
+  list-style: none;
+}
+.reload {
+  width: 200px;
 }

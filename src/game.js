@@ -1,8 +1,8 @@
 import RandomWord from "./words";
 
 class Game {
-    constructor() {
-        this.lives = 10;
+    constructor(difficulty) {
+        this.lives = difficulty;
         this.randomWord = new RandomWord();
         this.word = this.randomWord.word.toUpperCase();
         this.firstHint = this.randomWord.hints[0];
@@ -10,6 +10,18 @@ class Game {
         this.setUpWord();
         this.setUpHints();
         this.setUpLives();
+        this.setUpScoreBoard();
+    }
+    setUpScoreBoard() {
+        const scoreDiv = document.querySelector('.scoreboard');
+        const values = Object.values(sessionStorage);
+        for(let i = 0; i < values.length; i++) {
+            if(values[i] !== "true") {
+                const list = document.createElement('li');
+                list.append(`${values[i].slice(0,values[i].length-1)}: ${values[i].slice(values[i].length-1)} lives`);
+                scoreDiv.append(list);
+            }
+        }
     }
     setUpLives() {
         const div = document.querySelector(".display-lives");
@@ -67,9 +79,15 @@ class Game {
                     const hint2 = document.querySelector("#hint-2");
                     if(hint1) hint1.remove();
                     if(hint2) hint2.remove();
-
+                    const keyboardDiv1 = document.querySelector(".game");
                     keyboardDiv.className = "winner"
                     keyboardDiv.innerText = "You win!";
+                    const reloadBtn = document.createElement("button");
+                    reloadBtn.append("Play again?")
+                    reloadBtn.className = "reload";
+                    reloadBtn.addEventListener("click", this.restart);
+                    keyboardDiv1.append(reloadBtn);
+                    this.win();
                 }
             } else {
                 const button = document.querySelector(`#letter-${char.toLowerCase()}`);
@@ -80,7 +98,21 @@ class Game {
         }
         
     }
-    
+    win() {
+        const name = prompt("Please enter your name");
+        const len = sessionStorage.length;
+        const val = name + this.lives;
+        sessionStorage.setItem(`name${len}`, val);
+        const value = sessionStorage.getItem(`name${len}`)
+        const scoreDiv = document.querySelector('.scoreboard');
+        const list = document.createElement('li');
+        list.append(`${value.slice(0,value.length-1)}: ${value.slice(value.length-1)} lives`); 
+        scoreDiv.append(list);
+    }
+
+    restart() {
+        window.location.reload();
+    }
     setUpHints() {
         const hintDiv = document.querySelector(".hint-div");
         const firstHint = document.createElement("button");
@@ -147,6 +179,12 @@ class Game {
             livesDiv.remove();
             keyboardDiv.className = "game-over"
             keyboardDiv.innerText = "GAME OVER!";
+            const keyboardDiv1 = document.querySelector(".game");
+            const reloadBtn = document.createElement("button");
+            reloadBtn.append("Play again?")
+            reloadBtn.className = "reload";
+            reloadBtn.addEventListener("click", this.restart);
+            keyboardDiv1.append(reloadBtn);
         }
     }
 

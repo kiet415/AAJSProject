@@ -1,18 +1,38 @@
 import Game from "./game";
+
 let game;
 
-function getDifficulty(difficulty) {
-  createGame(difficulty);
-}
+
 document.addEventListener("DOMContentLoaded", () => {
     // Your code here
     console.log('DOM fully loaded and parsed');
     //let container = document.querySelector(".whole-page");
-    
-    //function createGame(difficulty) {
-      game = new Game();
-      console.log(game)
-    //}
+    const difficulty = document.querySelector(".difficulty-div")
+    difficulty.addEventListener("click", getDifficulty);
+
+    function getDifficulty(e) {
+      const el = e.target.innerText;
+      console.log(el)
+      let difficulty;
+      if(el === "EASY") {
+        difficulty = 10;
+      } else if (el === "MED") {
+        difficulty = 7;
+      } else if(el === "HARD") {
+        difficulty = 5;
+      }
+      if(Number.isInteger(difficulty)) {
+        const start = document.querySelector('.start-page');
+        const game = document.querySelector('.whole-page');
+        start.style.display = "none";
+        game.style.display = "flex";
+        game.style.flexDirection = "column";
+        game.style.alignItems = "center";
+        game = new Game(difficulty);
+        console.log(game);
+      }
+      
+    }
     
 });
 

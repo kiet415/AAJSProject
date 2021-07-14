@@ -1,27 +1,141 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<div class = "whole-page">
-    
-    <div class = "column mid">
-        <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-            <link rel="stylesheet" href="./src/index.css" />
-            <script src="./dist/main.js"></script>
-            <div class = "title">
-                <img src = "photos/logo.png" alt = "Logo pic"> </img>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./src/index.css" />
+    <script src="./dist/main.js"></script>
+</head>
+<body>
+   
+    <div class = "start-page">
+        <div class = "title">
+            <img src = "photos/logo.png" alt = "Logo pic"> </img>
+        </div>
+        <h1>Select a difficulty </h1>
+        <div class="difficulty-div">
+            <button class="difficulty" title="10 LIVES">EASY</button>   </a>
+            <button class="difficulty" title="7 LIVES">MED</button>  </a>
+            <button class="difficulty" title="5 LIVES">HARD</button>   </a>
+        </div>
+        <div class="difficulty-instructions">
+            Easy = 10 lives
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Med = 7 lives 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Hard = 5 lives
+        </div>
+        <div class = "instructions">
+            <h1 class = "instructions-title">INSTRUCTIONS</h1>
+            <div class = "instructions-desc" >Welcome to "Guess The Word"! 
+                Please select a difficulty
+                where you'll be presented a certain amount of lives and the
+                objective of this game is to select one letter at time 
+                in order to try to correctly guess what the random word 
+                is. If you select an incorrect letter, a life will be 
+                lost. However if you select a correct letter the letter                
+                will appear in the world at it's correct location. If you
+                lose all your lives before you guess the word then you lose.
+                Also, each game you'll be given one free hint if you choose
+                to use it. There's also a second hint that's avaliable, however
+                a life will be lost if used. GOOD LUCK AND HAVE FUN!
             </div>
-            
-        </head>
+        </div> 
+    </div>  
+    <div class = "whole-page">
+        <div class = "title">
+            <img src = "photos/logo.png" alt = "Logo pic"> </img>
+        </div>
         
-    </div>
-    <div class = "difficulty-div">
-        <a href = "./game.html"><button class = "difficulty" onclick="getDifficulty(10)">EASY </button>   </a>
-        <a href = "./game.html"><button class = "difficulty" onclick="getDifficulty(7)">MED </button>  </a>
-        <a href = "./game.html"><button class = "difficulty" onclick="getDifficulty(5)">HARD </button>   </a>
+        <div class = "column mid" id = "mid-col">
+            
+            <div class = "game">
+                
+            <div class ="display-lives"></div>
+            <ul class = "guess-word"> </ul>
+            <div class = "hint">
+                <div class = "display-hint"></div>
+                <div class = "hint-div"> </div>
+            </div>
+                <div class = "keyboard-div"> 
+                    <div class = "top-row">
+                        <button class = "letter" id = "letter-a">A</button>
+                        <button class = "letter" id = "letter-b">B</button>
+                        <button class = "letter" id = "letter-c">C</button>
+                        <button class = "letter" id = "letter-d">D</button>
+                        <button class = "letter" id = "letter-e">E</button>
+                        <button class = "letter" id = "letter-f">F</button>
+                        <button class = "letter" id = "letter-g">G</button>
+                        <button class = "letter" id = "letter-h">H</button>
+                        <button class = "letter" id = "letter-i">I</button>
+                    </div>
+                    
+                    <div class = "mid-row">
+                        <button class = "letter" id = "letter-j">J</button>
+                        <button class = "letter" id = "letter-k">K</button>
+                        <button class = "letter" id = "letter-l">L</button>
+                        <button class = "letter" id = "letter-m">M</button>
+                        <button class = "letter" id = "letter-n">N</button>
+                        <button class = "letter" id = "letter-o">O</button>
+                        <button class = "letter" id = "letter-p">P</button>
+                        <button class = "letter" id = "letter-q">Q</button>
+                        <button class = "letter" id = "letter-r">R</button>
+                    </div>
+                    
+                    <div class = "bot-row">
+                        <button class = "letter" id = "letter-s">S</button>
+                        <button class = "letter" id = "letter-t">T</button>
+                        <button class = "letter" id = "letter-u">U</button>
+                        <button class = "letter" id = "letter-v">V</button>
+                        <button class = "letter" id = "letter-w">W</button>
+                        <button class = "letter" id = "letter-x">X</button>
+                        <button class = "letter" id = "letter-y">Y</button>
+                        <button class = "letter" id = "letter-z">Z</button>
+                    </div>
+                    
+
+                </div>
+                
+                
+                
+                
+            </div>
+            <div class = "instructions">
+                <h1 class = "instructions-title">INSTRUCTIONS</h1>
+                <div class = "instructions-desc">Welcome to "Guess The Word"! 
+                    Please select a difficulty
+                    where you'll be presented a certain amount of lives and the
+                    objective of this game is to select one letter at time 
+                    in order to try to correctly guess what the random word 
+                    is. If you select an incorrect letter, a life will be 
+                    lost. However if you select a correct letter the letter                
+                    will appear in the world at it's correct location. If you
+                    lose all your lives before you guess the word then you lose.
+                    Also, each game you'll be given one free hint if you choose
+                    to use it. There's also a second hint that's avaliable, however
+                    a life will be lost if used. GOOD LUCK AND HAVE FUN!
+                </div>
+            </div> 
+            
+        </div>
+        
+        <div class = "column right" id = "right-col" >
+            <div class = "music">
+                <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                <div class="elfsight-app-01d4f94b-68b4-411b-a4be-c5ea61320006"></div>
+            </div>
+        </div>
+        
+        <div class = "scoreboard">
+            <h1>Scoreboard</h1>
+        </div>
     </div>
     
-    
+    <footer>
+        <a href = "https://github.com/kiet415" ><img src="photos/github.png" class = "github" > </a>
+        <a href = "https://www.linkedin.com/in/kietnguyen7/"><img src ="photos/linkedin.png " class = "linkedin"> </a>
+    </footer>
+</body>
 </html>
