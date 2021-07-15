@@ -1,6 +1,7 @@
 import RandomWord from "./words";
 
 class Game {
+    static soundEffect = true;
     constructor(difficulty) {
         this.lives = difficulty;
         this.randomWord = new RandomWord();
@@ -11,8 +12,28 @@ class Game {
         this.setUpHints();
         this.setUpLives();
         this.setUpScoreBoard();
+        this.setUpSounds();
+        
     }
     
+    setUpSounds() {
+        const div = document.querySelector(".sound");
+        const btn = document.createElement("button");
+        btn.className = "sound-btn"
+        btn.append("SOUND ON");
+        btn.addEventListener("click", this.changeSound);
+        div.append(btn);
+    }
+    changeSound() {
+        const btn = document.querySelector(".sound-btn");
+        if(Game.soundEffect) {
+            btn.innerText = "SOUND OFF";
+            Game.soundEffect = false;
+        } else {
+            btn.innerText = "SOUND ON";
+            Game.soundEffect = true;
+        }
+    }
     setUpScoreBoard() {
         const scoreDiv = document.querySelector('.scoreboard');
         const values = Object.values(sessionStorage);
@@ -76,9 +97,11 @@ class Game {
         if(char.length === 1) {
             if(this.word.includes(char)) {
                 let pos = [];
-                const audio = new Audio("sounds/correct.mp3");
-                audio.volume = 0.1;
-                audio.play();
+                if(Game.soundEffect) {
+                    const audio =   new Audio("sounds/correct.mp3");
+                    audio.volume = 0.1;
+                    audio.play();
+                }
                 for(let i = 0; i < this.word.length; i++) {
                     if(char === this.word[i]) pos.push(i);
                 }
@@ -96,6 +119,8 @@ class Game {
                     const hint2 = document.querySelector("#hint-2");
                     if(hint1) hint1.remove();
                     if(hint2) hint2.remove();
+                    const btn = document.querySelector(".sound-btn");
+                    btn.remove();
                     const keyboardDiv1 = document.querySelector(".game");
                     keyboardDiv.className = "winner"
                     keyboardDiv.innerText = "You win!";
@@ -107,9 +132,13 @@ class Game {
                     this.win();
                 }
             } else {
-                const audio = new Audio("sounds/buzz.mp3");
-                audio.volume = 0.1;
-                audio.play();
+                if(Game.soundEffect) {
+                
+                    const audio = new Audio("sounds/buzz.mp3");
+                    audio.volume = 0.1;
+                    audio.play();
+                }
+                
                 const button = document.querySelector(`#letter-${char.toLowerCase()}`);
                 button.className = "used";
                 this.decrementLives();
@@ -201,6 +230,8 @@ class Game {
             if(hint1) hint1.remove();
             if(hint2) hint2.remove();
             livesDiv.remove();
+            const btn = document.querySelector(".sound-btn");
+            btn.remove();
             keyboardDiv.className = "game-over"
             keyboardDiv.innerText = "GAME OVER!";
             const keyboardDiv1 = document.querySelector(".game");
