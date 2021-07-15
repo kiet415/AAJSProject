@@ -8,6 +8,7 @@ class Game {
         this.word = this.randomWord.word.toUpperCase();
         this.firstHint = this.randomWord.hints[0];
         this.secondHint = this.randomWord.hints[1];
+        this.category = this.randomWord.hints[2];
         this.setUpWord();
         this.setUpHints();
         this.setUpLives();
@@ -68,6 +69,10 @@ class Game {
     }
     setUpWord() {
         const wordUL = document.querySelector(".guess-word");
+        const category = document.querySelector(".category");
+        const categoryWord = document.createElement("div");
+        categoryWord.append(`Category is "${this.category}"`)
+        category.append(categoryWord);
         for(let i = 0; i < this.word.length; i++) {
             if(this.word[i] === ' ') {
                 const letterLI = document.createElement('div');
