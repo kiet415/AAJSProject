@@ -150,7 +150,7 @@ footer {
   font-size: 24px;
   line-height: 1.5;
 }
-.display-lives {
+.lives-text {
   margin-top: 10px;
   background-color: yellow;
   font-size: 20px;
@@ -202,4 +202,8 @@ footer {
 .used {
   opacity: 0.2;
   pointer-events: none;
+}
+.lives-pic-div img{
+  width: 30px;
+  height: 30px;
 }

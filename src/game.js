@@ -32,11 +32,18 @@ class Game {
 
     }
     setUpLives() {
-        const div = document.querySelector(".display-lives");
+        const div = document.querySelector(".lives-text");
         const livesDiv = document.createElement('div');
         livesDiv.className = "lives";
         livesDiv.append(`You have ${this.lives} lives left`);
         div.append(livesDiv);
+        const livesPicDiv = document.querySelector(".lives-pic-div");
+        for(let i = 0; i < this.lives; i++) {
+            const img = document.createElement("img");
+            img.src = "photos/lives.png";
+            livesPicDiv.append(img);
+        }
+        
     }
     setUpWord() {
         const wordUL = document.querySelector(".guess-word");
@@ -168,6 +175,9 @@ class Game {
         const livesDiv = document.querySelector(".lives");
         livesDiv.innerText = `You have ${this.lives} lives left`;
         this.isGameOver();
+        const livesPicList= document.querySelector(".lives-pic-div").children;
+        livesPicList[0].remove();
+        
     }
     isWin() {
         const liList = document.querySelector(".guess-word").children;
