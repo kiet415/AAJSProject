@@ -199,3 +199,7 @@ footer {
   height: 50px;
   margin-top: 10px;
 }
+.used {
+  opacity: 0.2;
+  pointer-events: none;
+}

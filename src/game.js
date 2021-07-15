@@ -79,7 +79,7 @@ class Game {
                     liList[pos[i]].innerText = char;
                 }
                 const button = document.querySelector(`#letter-${char.toLowerCase()}`);
-                button.remove();
+                button.className = "used";
                 if(this.isWin()) {
                     const keyboardDiv = document.querySelector(".keyboard-div");
                     console.log("You win!");
@@ -99,7 +99,7 @@ class Game {
                 }
             } else {
                 const button = document.querySelector(`#letter-${char.toLowerCase()}`);
-                button.remove();
+                button.className = "used";
                 this.decrementLives();
             }
             
