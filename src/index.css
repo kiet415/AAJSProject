@@ -134,8 +134,12 @@ footer {
   right: 0;
   bottom: 0;
 }
-.github, .linkedin {
-  width: 80px;
+.github {
+  width: 100px;
+  height: 50px;
+}
+.linkedin {
+  width: 60px;
   height: 50px;
 }
 .keyboard-div {
