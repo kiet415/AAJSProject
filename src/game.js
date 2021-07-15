@@ -76,7 +76,9 @@ class Game {
         if(char.length === 1) {
             if(this.word.includes(char)) {
                 let pos = [];
-                
+                const audio = new Audio("sounds/correct.mp3");
+                audio.volume = 0.1;
+                audio.play();
                 for(let i = 0; i < this.word.length; i++) {
                     if(char === this.word[i]) pos.push(i);
                 }
@@ -105,6 +107,9 @@ class Game {
                     this.win();
                 }
             } else {
+                const audio = new Audio("sounds/buzz.mp3");
+                audio.volume = 0.1;
+                audio.play();
                 const button = document.querySelector(`#letter-${char.toLowerCase()}`);
                 button.className = "used";
                 this.decrementLives();
