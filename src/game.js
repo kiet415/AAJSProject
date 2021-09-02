@@ -45,7 +45,7 @@ class Game {
             }
         }
         let sorted = arr.sort().reverse();
-        console.log(arr, sorted)
+        //console.log(arr, sorted)
         for(let i = 0; i < sorted.length; i++)  {
             const list = document.createElement('li');
             list.append(`${sorted[i].slice(1)}: ${sorted[i].slice(0,1)}`);
@@ -110,7 +110,7 @@ class Game {
                 for(let i = 0; i < this.word.length; i++) {
                     if(char === this.word[i]) pos.push(i);
                 }
-                console.log(pos);
+                //console.log(pos);
                 const liList = document.querySelector(".guess-word").children;
                 for(let i = 0; i < pos.length; i++) {
                     liList[pos[i]].innerText = char;
@@ -119,7 +119,7 @@ class Game {
                 button.className = "used";
                 if(this.isWin()) {
                     const keyboardDiv = document.querySelector(".keyboard-div");
-                    console.log("You win!");
+                   // console.log("You win!");
                     const hint1 = document.querySelector("#hint-1");
                     const hint2 = document.querySelector("#hint-2");
                     if(hint1) hint1.remove();
@@ -161,7 +161,7 @@ class Game {
         const scoreDiv = document.querySelector('.scoreboard');
         const list = document.createElement('div');
         list.className = "new-score";
-        list.append(`Play again to see your upated score ${value.slice(1)}: ${value.slice(0,1)} lives`); 
+        list.append(`New score - ${value.slice(1)}: ${value.slice(0,1)} lives`); 
         scoreDiv.append(list);
     }
 
@@ -170,6 +170,7 @@ class Game {
     }
     setUpHints() {
         const hintDiv = document.querySelector(".hint-div");
+        const keyboard = document.querySelector(".keyboard-div");
         const firstHint = document.createElement("button");
         firstHint.append("Hint 1");
         firstHint.className = "hint";
@@ -178,8 +179,12 @@ class Game {
         secondHint.append("Hint 2");
         secondHint.className = "hint";
         secondHint.id = "hint-2"
+        const secondHintInfo = document.createElement("div");
+        secondHintInfo.append("Hint 2 takes away 1 life!")
+        secondHintInfo.className="hint-info"
         hintDiv.append(firstHint);
         hintDiv.append(secondHint);
+        keyboard.prepend(secondHintInfo);
         this.hintClickHandler();
     }
     hintClickHandler() {
@@ -193,18 +198,32 @@ class Game {
         const hintDiv = document.querySelector(".display-hint");
         //console.log(hint.innerText)
         if(hint.innerText === 'Hint 1') {
+            if(Game.soundEffect) {
+                const audio =   new Audio("sounds/unlocked.mp3");
+                audio.volume = 0.1;
+                audio.play();
+            }
             const div = document.createElement("div");
             div.append(`Hint 1: ${this.firstHint}`);
+            div.className = "hints"
             hintDiv.append(div);
             const hint = document.querySelector("#hint-1");
             hint.remove();
         } else if(hint.innerText === 'Hint 2' && this.lives > 1) {
+            if(Game.soundEffect) {
+                const audio =   new Audio("sounds/unlocked.mp3");
+                audio.volume = 0.1;
+                audio.play();
+            }
             const div = document.createElement("div");
             div.append(`Hint 2: ${this.secondHint}`);
+            div.className = "hints"
             hintDiv.append(div);
             const hint = document.querySelector("#hint-2");
             hint.remove();
             this.decrementLives();
+            const hintInfo = document.querySelector(".hint-info");
+            hintInfo.remove();
         } else if(hint.innerText === 'Hint 2' && this.lives === 1) {
             alert("YOU CAN'T USE HINT 2 WITH 1 LIFE LEFT!")
         }
@@ -229,7 +248,7 @@ class Game {
         if(this.lives === 0) {
             const livesDiv = document.querySelector(".lives");
             const keyboardDiv = document.querySelector(".keyboard-div");
-            console.log("Game Over");
+            //console.log("Game Over");
             const hint1 = document.querySelector("#hint-1");
             const hint2 = document.querySelector("#hint-2");
             if(hint1) hint1.remove();

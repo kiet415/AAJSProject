@@ -16,7 +16,7 @@
   flex-direction: column;
   align-items: center;
   border: 1px solid black;
-  background-color: rgb(163, 219, 241);
+  background-color: beige;
 }
 .hint-div {
   margin-bottom: 50px;
@@ -33,7 +33,7 @@
   font-size: 50px;
 }
 button {
-  background-color: lightblue;
+  background-color: lightcoral;
   border: 1px solid black;
   color: black;
   font-size: 20px;
@@ -81,10 +81,12 @@ button:hover {
 .winner {
   font-size: 100px;
   text-align: center;
-  margin-left: 10%;
+  
   color: orangered;
 }
-
+.hints {
+  text-align: center;
+}
 .column {
   float: left;
   position: relative;
@@ -128,6 +130,10 @@ body {
 .hint {
   width: 100px;
 }
+.hint-info {
+  text-align: center;
+  margin-bottom: 10px;
+}
 footer {
   font-size: 20px;
   position: absolute;
@@ -167,12 +173,17 @@ footer {
   flex-direction: column;
   align-items: center;
 }
-
+.lives {
+  text-align: center;
+}
 .scoreboard {
   top: 0;
   right: 0;
   position: absolute;
   margin-right: 50px;
+}
+.scoreboard h1 {
+  border-bottom: 1px solid black;
 }
 .scoreboard li {
   font-size: 26px;

@@ -5,20 +5,20 @@ let game;
 
 document.addEventListener("DOMContentLoaded", () => {
     // Your code here
-    console.log('DOM fully loaded and parsed');
+    //console.log('DOM fully loaded and parsed');
     //let container = document.querySelector(".whole-page");
     const difficulty = document.querySelector(".difficulty-div")
     difficulty.addEventListener("click", getDifficulty);
 
     function getDifficulty(e) {
       const el = e.target.innerText;
-      console.log(el)
+      //console.log(el)
       let difficulty;
-      if(el === "EASY") {
+      if(el === "EASY - 10") {
         difficulty = 10;
-      } else if (el === "MED") {
+      } else if (el === "MED - 7") {
         difficulty = 7;
-      } else if(el === "HARD") {
+      } else if(el === "HARD - 5") {
         difficulty = 5;
       }
       if(Number.isInteger(difficulty)) {
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
         game.style.flexDirection = "column";
         game.style.alignItems = "center";
         game = new Game(difficulty);
-        console.log(game);
+       //console.log(game);
       }
       
     }
