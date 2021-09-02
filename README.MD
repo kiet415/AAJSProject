@@ -1,3 +1,5 @@
+[Live](https://kiet415.github.io/AAJSProject/)
+
 # Background (Description of project)
 The game I will be creating is called "Guess the Word", which is basically
 an implementation of the common game "Hangman. A simple description of the 
