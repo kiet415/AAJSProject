@@ -2,7 +2,7 @@
 
 # Background (Description of project)
 The game I will be creating is called "Guess the Word", which is basically
-an implementation of the common game "Hangman. A simple description of the 
+an implementation of the common game "Hangman". A simple description of the 
 gameplay is that the user will be presented a random word where the word is
 comprised of blank letters, however they're given the amount of letters or 
 spaces for that word. The user then will be given lives and they will select
